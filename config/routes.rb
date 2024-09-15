@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :students
   resources :sessions
 
+  get "dashboard/index", as: :dashboard
   get "/sessions/:student_id/new_password" => "sessions#new_password", as: :session_new_password
   post "/sessions/:student_id/new_password" => "sessions#create_password", as: :session_create_password
 

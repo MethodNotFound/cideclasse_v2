@@ -4,10 +4,17 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def ensure_admin = nil
-  def ensure_student = nil
+  def ensure_admin
+    if admin? == false
+      redirect_to new_session_path
+    end
+  end
 
-  def current_session
-    Session.find_by(id: session[:current_session_id])
+  def admin?
+    session[:current_session_id] == "admin"
+  end
+
+  def current_student
+    Session.find_by_id(session[:current_session_id])
   end
 end
