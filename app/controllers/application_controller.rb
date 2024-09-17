@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_student
+    if current_student.nil?
+      redirect_to new_session_path
+    end
+  end
+
   def admin?
     session[:current_session_id] == "admin"
   end
