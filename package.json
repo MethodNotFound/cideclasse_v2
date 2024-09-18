@@ -2,6 +2,8 @@
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@rails/actiontext": "^7.2.100",
+    "trix": "^2.1.5"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
