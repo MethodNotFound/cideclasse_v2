@@ -1,0 +1,41 @@
+version: '3.9'  # Specify the version of Docker Compose
+
+services:
+  db:
+    image: postgres:15 # Specify the version of PostgreSQL you want
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: cideclasse
+    ports:
+      - "5432:5432" # Expose port 5432 for external access
+    volumes:
+      - db_data:/var/lib/postgresql/data # Persist data
+    networks:
+      - app_network
+
+  adminer:
+    image: docker.io/library/adminer:latest
+    restart: always
+    ports:
+      - "8082:8080"
+    networks:
+      - app_network
+
+  piston:
+    image: ghcr.io/engineer-man/piston
+    volumes:
+      - piston_data:/piston
+    ports:
+      - "2000:2000"
+    tmpfs:
+      - /piston/jobs
+
+volumes:
+  db_data:
+  piston_data:
+
+networks:
+  app_network:
+    driver: bridge
