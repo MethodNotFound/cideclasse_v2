@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       session[:current_session_id] = "admin"
       respond_to do |format|
         format.html { redirect_to students_url, notice: "Logado" }
-        format.json { {success: "logged as admin"} }
+        format.json { render json: {success: "logged as admin"} }
       end
       return
     end
@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
     end
 
     if related_student.ask_new_password?
-      @errors = ["crie uma nova senha"]
+      @errors = ["crie uma nova senha #{session_create_password_url(related_student.id)}"]
       respond_to do |format|
         format.html { redirect_to session_new_password_url(related_student) }
         format.json { render json: {errors: @errors}, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class SessionsController < ApplicationController
       if @session.save
         session[:current_session_id] = @session.id
         format.html { redirect_to dashboard_path, notice: "Logado" }
-        format.json { {success: "logged as student"} }
+        format.json { render json: {success: "logged as student"} }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @session.errors, status: :unprocessable_entity }
@@ -89,7 +89,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if student.save
         format.html { redirect_to new_session_url, notice: "Senha criada" }
-        format.json { render :show, status: :created, location: student }
+        format.json { render json: {success: "senha criada"}, status: :created }
       else
         @attrs = params.to_h
         @errors = student.errors
