@@ -1,16 +1,31 @@
-<div class="w-full">
+<div class="w-full bg-gray">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
   <% content_for :title, "Students" %>
+<!--Container-->
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Students</h1>
-    <%= link_to "New student", new_student_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <!--Container Roxo--->
+  <div class="container  flex  h-screen">
+    <div class="bg-purple w-8/12 p-10 flex justify-center items-center flex-col"> 
+    <h1 class="font-bold text-4xl bg-purple  text-6xl font-bold  text-white justify-center  text-center">É um prazer tê-lo(a) conosco. </h1>
+      <br>
+      <h1 class="p-padrao align-center">Este portal foi desenvolvido especialmente para facilitar a sua rotina , oferecendo ferramentas que auxiliam na gestão de atividades e no acompanhamento do desempenho dos alunos.</h1>
+      
+  </div>
+   <!---Container Branco--->
+  <div class="p-10 bg-gray ">
+    <section class="container_bvc  flex h-72 flex-col container_t text-gray">
+    <h1 class="p-text">Registro<h1>
+    <h2 class="p-gray pb-5 text-center"> Selecione a opção para cadastrar alunos:<h2>
+    <%= link_to "Cadastrar Estudantes", new_student_path, class: "rounded-lg py-3 px-5 bg-purple text-lg  text-white block font-medium" %>
+    </section>
   </div>
 
-  <div id="students" class="min-w-full">
+
+<!--Fim do Container-->
+  <div id="students" class="">
     <% @students.each do |student| %>
       <%= render student %>
       <p>
