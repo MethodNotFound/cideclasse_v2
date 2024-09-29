@@ -1,0 +1,12 @@
+<ul id="student-list" class="border rounded-md p-4 space-y-2">
+  <!-- Dynamically filled student list -->
+  <% students_search.each do |student| %>
+    <li class="flex justify-between items-center">
+      <span><%= student.name %></span>
+      <%= form_with(url: add_student_to_klass_path(klass_id: @klass.id), method: :post) do |form| %>
+        <%= form.hidden_field :student_id, value: student.id %>
+        <%= form.submit "Adicionar", class: "px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600" %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

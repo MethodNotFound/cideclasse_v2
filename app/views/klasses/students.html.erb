@@ -1,0 +1,36 @@
+<div class="max-w-2xl mx-auto shadow-md rounded-lg p-6">
+  <h1 class="text-2xl font-bold mb-4">Register Students to a Class</h1>
+
+  <%= form_with(url: students_search_klass_path, method: :post) do |form| %>
+    <div class="mb-6">
+      <label for="student-search" class="block text-gray-300 font-semibold mb-2">Student Search</label>
+      <div class="flex">
+        <%= form.text_field :query, class: "w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200", placeholder: "busca por nome" %>
+        <%= form.submit "search", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+
+  <!-- List of Students to Add -->
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-2">Students Found</h2>
+    <%= render(partial: "klasses/students_search", locals: {students_search: [], klass: @klass}) %>
+  </div>
+
+  <!-- List of Students in Class -->
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-2">Students in the Class</h2>
+    <ul id="class-student-list" class="border rounded-md p-4 space-y-2">
+
+      <!-- Dynamically filled student list -->
+
+      <% @klass.students.each do |student| %>
+        <li class="flex justify-between items-center">
+          <span><%= student.name %></span>
+          <%= button_to "remover", leave_klass_path(id: student.id, klass_id: @klass.id), method: :delete, class: "px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

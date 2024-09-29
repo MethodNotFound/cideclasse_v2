@@ -1,6 +1,13 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: %i[ show edit update destroy ]
+  before_action :set_student, only: %i[leave_klass show edit update destroy ]
   before_action :ensure_admin
+
+  # DELETE /students/1/klasses/2
+  def leave_klass
+    klass = Klass.find(params[:klass_id])
+    @student.klasses.delete(klass)
+    redirect_to edit_students_klass_path(klass)
+  end
 
   # GET /students or /students.json
   def index
