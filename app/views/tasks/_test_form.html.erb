@@ -1,0 +1,12 @@
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <%= f.label :input %>
+  <%= f.text_area :input %>
+  <%= f.label :output %>
+  <%= f.text_area :output %>
+  <%= f.label :hidden %>
+  <%= f.check_box :hidden %>
+
+  <button type="button" data-action="nested-form#remove">Remove todo</button>
+
+  <%= f.hidden_field :_destroy %>
+</div>

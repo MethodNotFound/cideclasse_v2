@@ -1,5 +1,6 @@
 class KlassesController < ApplicationController
   before_action :set_klass, only: %i[tasks tasks_search add_task remove_task students students_search add_student show edit update destroy ]
+  before_action :ensure_admin
 
   # POST /klasses/1/add_student
   def add_student
@@ -125,6 +126,6 @@ class KlassesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def klass_params
-      params.require(:klass).permit(:identifier)
+      params.require(:klass).permit!
     end
 end

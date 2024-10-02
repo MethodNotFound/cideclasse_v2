@@ -19,6 +19,27 @@
   </head>
 
   <body>
+    <% if session[:current_session_id] == "admin" %>
+      <nav class="bg-white shadow-md">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="flex justify-between items-center py-4">
+                  <!-- Logo (Mock Image) -->
+                  <div class="flex items-center">
+                      <img src="https://via.placeholder.com/50" alt="Logo" class="h-10 w-10">
+                      <span class="ml-3 text-xl font-semibold text-gray-800">Cideclasse</span>
+                  </div>
+
+                  <!-- Links -->
+                  <div class="space-x-8">
+                        <a href="/klasses" class="text-gray-800 hover:text-blue-500 font-medium">Turmas</a>
+                        <a href="/students" class="text-gray-800 hover:text-blue-500 font-medium">Alunos</a>
+                        <a href="/tasks" class="text-gray-800 hover:text-blue-500 font-medium">Tarefas</a>
+                  </div>
+              </div>
+          </div>
+      </nav>
+    <% end %>
+
     <main>
       <%= yield %>
     </main>
