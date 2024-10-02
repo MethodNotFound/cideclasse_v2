@@ -12,23 +12,19 @@
   <% end %>
 
 
-  <!-- List of Students to Add -->
   <div class="mb-6">
     <h2 class="text-lg font-semibold mb-2">Tarefas Descobertas</h2>
-    <%= render(partial: "klasses/students_search", locals: {students_search: [], klass: @klass}) %>
+    <%= render(partial: "klasses/tasks_search", locals: {tasks_search: [], klass: @klass}) %>
   </div>
 
-  <!-- List of Students in Class -->
   <div class="mb-6">
     <h2 class="text-lg font-semibold mb-2">Tarefas da turma</h2>
     <ul id="class-student-list" class="border rounded-md p-4 space-y-2">
 
-      <!-- Dynamically filled student list -->
-
-      <% @klass.students.each do |student| %>
+      <% @klass.tasks.each do |task| %>
         <li class="flex justify-between items-center">
-          <span><%= student.name %></span>
-          <%= button_to "remover", leave_klass_path(id: student.id, klass_id: @klass.id), method: :delete, class: "px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600" %>
+          <span><%= task.title %></span>
+          <%= button_to "remover", remove_task_from_klass_path(id: @klass.id, task_id: task.id), method: :delete, class: "px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600" %>
         </li>
       <% end %>
     </ul>

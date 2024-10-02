@@ -1,20 +1,50 @@
 class KlassesController < ApplicationController
-  before_action :set_klass, only: %i[tasks students students_search add_student show edit update destroy ]
+  before_action :set_klass, only: %i[tasks tasks_search add_task remove_task students students_search add_student show edit update destroy ]
 
   # POST /klasses/1/add_student
   def add_student
     student = Student.find(params[:student_id])
 
-    if !student.klasses.pluck(:id).any?(@klass.id)
+    unless student.klasses.pluck(:id).any?(@klass.id)
       @klass.students << student
     end
     redirect_to edit_students_klass_path(@klass)
+  end
+
+  def remove_task
+    task = Task.find(params[:task_id])
+    @klass.tasks.delete(task)
+
+    redirect_to edit_students_klass_path(@klass)
+  end
+
+  def add_task
+    task = Task.find(params[:task_id])
+
+    unless @klass.tasks.pluck(:id).any?(task.id)
+      @klass.tasks << task
+    end
+    redirect_to edit_tasks_klass_path(@klass)
   end
 
   def students
   end
 
   def tasks
+  end
+
+  def tasks_search
+    @tasks_search = Task.where("title LIKE ?", "%#{params[:query]}%").limit(5)
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          "task-list",
+          partial: "klasses/tasks_search",
+          locals: { tasks_search: @tasks_search, klass: @klass }
+        )
+      end
+    end
   end
 
   def students_search

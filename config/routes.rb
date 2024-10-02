@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get "/klasses/:id/students" => "klasses#students", as: :edit_students_klass
   post "/klasses/:id/students_search" => "klasses#students_search", as: :students_search_klass
 
+  delete "/klasses/:id/remove_task" => "klasses#remove_task", as: :remove_task_from_klass
+  post "/klasses/:id/add_task" => "klasses#add_task", as: :add_task_to_klass
   get "/klasses/:id/tasks" => "klasses#tasks", as: :edit_tasks_klass
   post "/klasses/:id/tasks_search" => "klasses#tasks_search", as: :tasks_search_klass
 
