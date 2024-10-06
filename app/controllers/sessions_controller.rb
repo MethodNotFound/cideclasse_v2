@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     if params[:identifier] == "admin" && params[:password] == "owo"
       session[:current_session_id] = "admin"
       respond_to do |format|
-        format.html { redirect_to students_url, notice: "Logado" }
+        format.html { redirect_to dashboard_teacher_path, notice: "Logado" }
         format.json { {success: "logged as admin"} }
       end
       return
