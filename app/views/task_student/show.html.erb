@@ -1,0 +1,5 @@
+<h1 class="text-3xl font-bold text-center mb-8"><%= @task.title %></h1>
+
+<%= @task.problem %>
+
+<%= link_to "Enviar trabalho", new_submission_path(task_id: @task.id) %>

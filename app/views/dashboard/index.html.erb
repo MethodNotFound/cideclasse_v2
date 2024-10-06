@@ -1,12 +1,12 @@
 <!-- Page Wrapper -->
 <div class="max-w-7xl mx-auto p-6">
   <!-- Title -->
-  <h1 class="text-3xl font-bold text-center mb-8">Classes and Tasks</h1>
+  <h1 class="text-3xl font-bold text-center mb-8">Turmas e Tarefas</h1>
 
   <!-- Classes Section -->
-  <div class="bg-white shadow-md rounded-lg p-6">
+  <div class="shadow-md rounded-lg p-6">
     <!-- Title for Classes List -->
-    <h2 class="text-2xl font-semibold mb-4">Your Classes</h2>
+    <h2 class="text-2xl font-semibold mb-4">Suas turmas</h2>
 
     <!-- List of Classes -->
     <ul class="space-y-4">
@@ -14,18 +14,20 @@
       <% @classes.each_with_index do |klass, i| %>
 
         <!-- Class 1 -->
-        <li class="border rounded-lg p-4 bg-gray-50">
-          <h3 class="text-xl font-semibold">Class <%= i+1 %>: <%= klass.identifier %></h3>
-          <p class="text-gray-600">Tasks for this class:</p>
-
-          <!-- List of Tasks for Class 1 -->
-          <ul class="pl-4 list-disc text-gray-800">
-            <% klass.tasks.each do |task| %>
-              <li><%= task.title %></li>
+          <li class="border rounded-lg p-4">
+            <%= link_to dashboard_class_tasks_path(id: klass.id) do %>
+              <h3 class="text-xl font-semibold hover:text-blue-300">Turma <%= i+1 %>: <%= klass.identifier %></h3>
             <% end %>
+            <p class="text-gray-300">Tarefas para essa turma:</p>
 
-          </ul>
-        </li>
+            <!-- List of Tasks for Class 1 -->
+            <ul class="pl-4 list-disc text-gray-300">
+              <% klass.tasks.each do |task| %>
+                <li><%= task.title %></li>
+              <% end %>
+
+            </ul>
+          </li>
         <div>
 
         <% end %>

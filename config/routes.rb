@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   resources :students
   resources :sessions
 
+  resources :submissions, except: [:new]
+
+  get "submissions/:task_id/new" => "submissions#new", as: :new_submission
+
+  get "task_student/:task_id" => "task_student#show", as: :show_task_student
+
   get "dashboard/index", as: :dashboard
+  get "dashboard/class_tasks/:id" => "dashboard#class_tasks", as: :dashboard_class_tasks
   get "/sessions/:student_id/new_password" => "sessions#new_password", as: :session_new_password
   post "/sessions/:student_id/new_password" => "sessions#create_password", as: :session_create_password
 

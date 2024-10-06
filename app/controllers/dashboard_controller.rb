@@ -4,8 +4,6 @@ class DashboardController < ApplicationController
   def index
     @classes = current_student.student.klasses
 
-
-
     respond_to do |format|
       format.html { render "dashboard/index" }
       format.json do
@@ -22,5 +20,9 @@ class DashboardController < ApplicationController
         }
       end
     end
+  end
+
+  def class_tasks
+    @klass = Klass.find(params[:id])
   end
 end
