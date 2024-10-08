@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
-  before_action :ensure_student
+  before_action :ensure_student, except: [:index]
+  before_action :ensure_admin, only: [:index_teacher]
 
   def index
     @classes = current_student.student.klasses
@@ -27,6 +28,6 @@ class DashboardController < ApplicationController
   end
 
   def index_teacher
-  ensure_admin
+    ensure_admin
   end
 end
