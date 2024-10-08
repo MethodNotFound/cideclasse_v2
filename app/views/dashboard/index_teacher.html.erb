@@ -1,7 +1,5 @@
 <div class="w-full bg-gray">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+
 
   <% content_for :title, "Students" %>
 <!--Container-->
@@ -15,8 +13,13 @@
       
   </div>
    <!---Container Branco--->
-  <div class="p-10 bg-gray ">
-    <section class="container_bvc  flex h-72 flex-col container_t text-gray">
+  <div class="p-10 bg-gray w-2/6 justify-center ">
+  <!--MENSAGEM-->
+  <% if notice.present? %>
+    <p class="py-2 justify-center flex px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+  <!--MENSAGEM-->
+    <section class="container_bvc  flex h-72 flex-col container_t text-gray justify-center">
     <%= link_to "Cadastrar Estudantes", new_student_path, class: "rounded-lg py-3 px-5 bg-purple text-lg mt-12 ml-12 text-white block font-medium" %>
     </section>
   </div>

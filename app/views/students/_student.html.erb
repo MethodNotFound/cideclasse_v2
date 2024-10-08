@@ -1,27 +1,28 @@
 <!--Tela Login Criado com Sucesso--->
-<main class=" h-dvh p-10">
+<main class=" h-dvh p-10 bg-gradient">
 <div id="<%= dom_id student  %>">
   <p class="my-5">
 
   <!--Container Branco-->
   <section class=" flex flex-col mx-36 ml-72 bg-gray rounded-2xl text-gray   box-gray text-xl p-8 shadow-2xl shadow-violet-300">
-      <h1 class="font-bold text-4xl text-gray text-center p-7">Cadastro realizado com sucesso!</h1>
-      <strong class="block    text-xl  text-gray  font-normal mb-1">Nome:</strong>
+      <h1 class="font-bold text-4xl text-white  text-center p-7">Cadastro realizado com sucesso!</h1>
+      <img class="flex " src="/menino.png"/>
+      <strong class="block    text-xl  text-white font-normal mb-1">Nome:</strong>
       <%= student.name %>
     </p>
 
     <p class="my-5">
-      <strong class="block   font-normal text-gray  mb-1">Email:</strong>
+      <strong class="block   font-normal text-white  mb-1">Email:</strong>
       <%= student.email %>
     </p>
 
     <p class="my-5">
-      <strong class="block font-normal text-gray  mb-1">Identificador:</strong>
+      <strong class="block font-normal text-white  mb-1">Identificador:</strong>
       <%= student.identifier %>
     </p>
 
     <p class="my-5">
-      <strong class="block font-normal  text-gray mb-1">Ask new password:</strong>
+      <strong class="block font-normal  text-white mb-1">Ask new password:</strong>
       <%= student.ask_new_password %>
     </p>
   </section>
