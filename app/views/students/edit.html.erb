@@ -1,8 +1,10 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing student</h1>
+<main class="bg-gradient">
+  <div class="mx-auto md:w-2/3 w-full box-gray  rounded-2xl p-10 ">
+    <h1 class="font-bold text-4xl text-center">Editar Estudante</h1>
 
-  <%= render "form", student: @student %>
+    <%= render "form", student: @student %>
 
-  <%= link_to "Show this student", @student, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to students", students_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-</div>
+    <%= link_to "Show this student", @student, class: "ml-2 p-10  rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Back to students", students_path, class: "ml-2  p-10 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</main>

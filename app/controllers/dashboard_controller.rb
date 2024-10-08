@@ -25,4 +25,8 @@ class DashboardController < ApplicationController
   def class_tasks
     @klass = Klass.find(params[:id])
   end
+
+  def index_teacher
+  ensure_admin
+  end
 end

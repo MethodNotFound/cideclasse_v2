@@ -29,8 +29,6 @@
  }
 
  *{
-    
-
  }
  
  .bg-gray{
@@ -44,7 +42,10 @@
  .bg-purplee{
      background-color: #9C6FE4;
  }
- 
+ .bg-gradient{
+    background: rgb(69,66,66);
+    background: linear-gradient(0deg, rgba(69,66,66,1) 0%, rgba(146,95,226,1) 100%);
+ }
  .text-poppins{
      font-family: "Poppins", sans-serif;
  }
@@ -111,7 +112,6 @@
  .container_bvc{
     display: flex;
     align-items: center;
-    background-color: var(--white-color);
     margin-top: 100px;
     justify-content: center;
     width: 390px;
@@ -125,4 +125,24 @@
 
  .bg-back{
     background-image: url(/public/backgroundpurple.jpg);
+ }
+
+ .text_purple{
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    color:--purple-color
+ }
+
+ .box-gray{
+    padding:24px;
+    width:700px;
+    height:500px;
+ }
+
+ .img-grupo{
+    display: flex;
+    width: 400px;
+    height: 400px;
+    flex-direction: row;
+    float: left;
  }

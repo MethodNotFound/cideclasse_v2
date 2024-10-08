@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get "dashboard/index", as: :dashboard
   get "dashboard/class_tasks/:id" => "dashboard#class_tasks", as: :dashboard_class_tasks
+  get "dashboard/index_teacher", as: :dashboard_teacher
+
   get "/sessions/:student_id/new_password" => "sessions#new_password", as: :session_new_password
   post "/sessions/:student_id/new_password" => "sessions#create_password", as: :session_create_password
 
