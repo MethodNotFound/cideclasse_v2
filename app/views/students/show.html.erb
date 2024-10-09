@@ -6,10 +6,10 @@
 
     <%= render @student %>
 
-    <%= link_to "Edit this student", edit_student_path(@student), class: "mt-2 rounded-lg py-3 px-5 bg-purple inline-block font-medium" %>
-    <%= link_to "Back to students", students_path, class: "ml-2 rounded-lg py-3 px-5 bg-purple inline-block font-medium" %>
+    <%= link_to "Editar", edit_student_path(@student), class: "mt-2 rounded-lg py-3 px-5 bg-purple inline-block font-medium" %>
+    <%= link_to "Voltar", students_welcome_path, class: "ml-2 rounded-lg py-3 px-5 bg-purple inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to "Destroy this student", @student, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-purple font-medium" %>
+      <%= button_to "Deletar", @student, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-purple font-medium" %>
     </div>
   </div>
 </div>

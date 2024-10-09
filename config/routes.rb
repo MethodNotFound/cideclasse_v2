@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :submissions, except: [:new]
 
+  get "student/welcome" => "students#welcome", as: :students_welcome
   get "submissions/:task_id/new" => "submissions#new", as: :new_submission
 
   get "task_student/:task_id" => "task_student#show", as: :show_task_student

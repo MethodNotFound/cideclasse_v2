@@ -14,12 +14,16 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
+  def welcome
+  end
+
   # GET /students/1 or /students/1.json
   def show
   end
 
   # GET /students/new
   def new
+    @bar = true
     @student = Student.new
   end
 

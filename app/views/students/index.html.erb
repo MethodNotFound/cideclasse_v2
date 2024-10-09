@@ -1,20 +1,8 @@
-fnsrknfvkjsrnsgjkesnkfsnjkvbnsrjvnesklvncesl
- savedfces 
- facilitares
- ferramentasf
- es 
- es
- f
- es ferramentasf 
- savedf es
- facilitaresdd
-<!--Fim do Container-->
-  <div id="students" class="">
-    <% @students.each do |student| %>
-      <%= render student %>
-      <p>
-        <%= link_to "Show this student", student, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
-  </div>
-
+<div id="students" class="mt-3">
+  <% @students.each do |student| %>
+    <div class="flex justify-between w-full pb-3">
+      Nome: <%= student.name %>
+      <%= link_to "Mostrar cadastro", student, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium text-black" %>
+    </div>
+  <% end %>
+</div>
