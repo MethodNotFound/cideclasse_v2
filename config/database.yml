@@ -8,15 +8,25 @@ default: &default
   port: 5432
 
 development:
-  <<: *default
-  database: cideclasse_development
+  primary: &primary_development
+    <<: *default
+    database: cideclasse_development
+  queue:
+    <<: *primary_development
+    database: cideclasse_development_queue
+    migrations_paths: db/queue_migrate
 
 test:
   <<: *default
   database: cideclasse_test
 
 production:
-  <<: *default
-  database: cideclasse_production
-  username: cideclasse
-  password: <%= ENV["CIDECLASSE_DATABASE_PASSWORD"] %>
+  primary: &primary_production
+    url: <%= ENV["DATABASE_URL"] %>
+  queue:
+    database: cideclasse_production_queue
+    username: <%= ENV["DB_USER"] %>
+    host: <%= ENV["DB_HOST"] %>
+    password: <%= ENV["DB_PASSWORD"] %>
+    port: <%= ENV["DB_PORT"] %>
+    migrations_paths: db/queue_migrate

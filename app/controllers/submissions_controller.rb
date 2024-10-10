@@ -25,6 +25,7 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.new(submission_params)
     @submission.student = current_student.student
+    MyJob.perform_later
 
     respond_to do |format|
       if @submission.save
