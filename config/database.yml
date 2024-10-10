@@ -22,8 +22,14 @@ test:
 
 production:
   primary: &primary_production
+    adapter: postgresql
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     url: <%= ENV["DATABASE_URL"] %>
   queue:
+    adapter: postgresql
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     database: cideclasse_production_queue
     username: <%= ENV["DB_USER"] %>
     host: <%= ENV["DB_HOST"] %>
