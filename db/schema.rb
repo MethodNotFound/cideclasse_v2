@@ -105,8 +105,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_212842) do
   create_table "submissions", force: :cascade do |t|
     t.string "code"
     t.bigint "task_id", null: false
+    t.bigint "student_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_submissions_on_student_id"
     t.index ["task_id"], name: "index_submissions_on_task_id"
   end
 
@@ -131,6 +133,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_06_212842) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "corrections", "submissions"
   add_foreign_key "sessions", "students"
+  add_foreign_key "submissions", "students"
   add_foreign_key "submissions", "tasks"
   add_foreign_key "tests", "tasks"
 end

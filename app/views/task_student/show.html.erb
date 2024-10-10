@@ -2,4 +2,6 @@
 
 <%= @task.problem %>
 
+<%= @task.submissions.where(student: @student).count %>
+
 <%= link_to "Enviar trabalho", new_submission_path(task_id: @task.id) %>

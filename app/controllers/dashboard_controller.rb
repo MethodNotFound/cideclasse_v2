@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :ensure_student, except: [:index]
+  before_action :ensure_student, except: [:index_teacher]
   before_action :ensure_admin, only: [:index_teacher]
 
   def index
