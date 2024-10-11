@@ -25,10 +25,11 @@ class SubmissionsController < ApplicationController
   def create
     @submission = Submission.new(submission_params)
     @submission.student = current_student.student
-    MyJob.perform_later
 
     respond_to do |format|
       if @submission.save
+        CodeCorrectionJob.perform_later(@submission.id)
+
         format.html { redirect_to submission_url(@submission), notice: "Submission was successfully created." }
         format.json { render :show, status: :created, location: @submission }
       else
