@@ -37,6 +37,7 @@ class CodeCorrectionJob < ApplicationJob
 
       correction = Correction.new(
         test: test,
+        submission: submission,
         input: test.input,
         output: out,
         passed: test.output.strip == out.strip
@@ -45,7 +46,7 @@ class CodeCorrectionJob < ApplicationJob
       if correction.save
         p correction
       else
-        p "errorrRRR"
+        p corrections.errors
       end
     end
   rescue => e

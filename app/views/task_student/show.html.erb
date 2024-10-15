@@ -1,7 +1,12 @@
-<h1 class="text-3xl font-bold text-center mb-8"><%= @task.title %></h1>
 
-<%= @task.problem %>
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="text-3xl font-bold text-center mb-8"><%= @task.title %></h1>
 
-<%= @task.submissions.where(student: @student).count %>
+  <div style="min-height: 300px" class="mb-8">
+    <%= @task.problem %>
+  </div>
 
-<%= link_to "Enviar trabalho", new_submission_path(task_id: @task.id) %>
+  <%# <%= @task.submissions.where(student: @student).count %>
+
+  <%= link_to "Enviar trabalho", new_submission_path(task_id: @task.id), class: "btn btn-primary float-right" %>
+</div>

@@ -5,10 +5,14 @@ Rails.application.routes.draw do
   resources :students
   resources :sessions
 
+  get 'codicon.ttf', to: redirect('https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/esm/vs/base/browser/ui/codicons/codicon/codicon.ttf')
+
   resources :submissions, except: [:new]
 
   get "student/welcome" => "students#welcome", as: :students_welcome
   get "submissions/:task_id/new" => "submissions#new", as: :new_submission
+
+  get "submissions/:submission_id/inspect" => "submissions#sub_inspect", as: :submission_inspect
 
   get "task_student/:task_id" => "task_student#show", as: :show_task_student
 

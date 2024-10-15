@@ -14,7 +14,16 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1/new
   def new
     @submission = Submission.new
-    @submission.task = Task.find(params[:task_id])
+    @task = Task.find(params[:task_id])
+    @submission.task = @task
+
+    @previous_submissions = @task.submissions.where(student: current_student.student)
+
+    @inspected = Submission.find(params[:inspect]) if params[:inspect]
+  end
+
+  def sub_inspect
+
   end
 
   # GET /submissions/1/edit
@@ -30,7 +39,7 @@ class SubmissionsController < ApplicationController
       if @submission.save
         CodeCorrectionJob.perform_later(@submission.id)
 
-        format.html { redirect_to submission_url(@submission), notice: "Submission was successfully created." }
+        format.html { redirect_back fallback_location: root_url, notice: "Submission was successfully created." }
         format.json { render :show, status: :created, location: @submission }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -7,5 +7,8 @@
 import { Application } from '@hotwired/stimulus'
 import RailsNestedForm from '@stimulus-components/rails-nested-form'
 
+import Editor from './editor'
+
 const application = Application.start()
 application.register('nested-form', RailsNestedForm)
+application.register('editor', Editor)

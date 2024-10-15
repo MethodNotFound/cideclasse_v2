@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
   before_action :ensure_admin, only: [:index_teacher]
 
   def index
+    @student = current_student.student
     @classes = current_student.student.klasses
 
     respond_to do |format|
@@ -24,6 +25,7 @@ class DashboardController < ApplicationController
   end
 
   def class_tasks
+    @student = current_student.student
     @klass = Klass.find(params[:id])
   end
 

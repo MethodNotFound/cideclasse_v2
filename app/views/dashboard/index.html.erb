@@ -1,5 +1,6 @@
 <!-- Page Wrapper -->
-<div class="max-w-7xl mx-auto p-6">
+
+<div class="mx-auto md:w-2/3 w-full py-10">
   <!-- Title -->
   <h1 class="text-3xl font-bold text-center mb-8">Turmas e Tarefas</h1>
 
@@ -14,8 +15,8 @@
       <% @classes.each_with_index do |klass, i| %>
 
         <!-- Class 1 -->
-          <li class="border rounded-lg p-4">
-            <%= link_to dashboard_class_tasks_path(id: klass.id) do %>
+          <li class="border border-base-100 rounded-lg p-4">
+            <%= link_to(dashboard_class_tasks_path(id: klass.id), class: "underline") do %>
               <h3 class="text-xl font-semibold hover:text-blue-300">Turma <%= i+1 %>: <%= klass.identifier %></h3>
             <% end %>
             <p class="text-gray-300">Tarefas para essa turma:</p>
@@ -23,7 +24,12 @@
             <!-- List of Tasks for Class 1 -->
             <ul class="pl-4 list-disc text-gray-300">
               <% klass.tasks.each do |task| %>
-                <li><%= task.title %></li>
+                <% subs = task.submissions.where(student: @student)%>
+                <% complete = 0 %>
+                <% subs.each do |sub| %>
+                  <% complete += 1 if sub.corrections.count <= sub.corrections.where(passed: true).count %>
+                <% end %>
+                <li class="<%= complete >= 1 ? "text-green-500" : "text-red-500" %>"><%= task.title %></li>
               <% end %>
 
             </ul>
