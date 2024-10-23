@@ -3,13 +3,14 @@ class CodeCorrectionJob < ApplicationJob
 
   def perform(submission_id)
     puts "testing #{submission_id}"
+    url = ENV.fetch("PISTON_URL") { "http://localhost:2000" }
 
     submission = Submission.find(submission_id.to_i)
     task = submission.task
 
     task.tests.each do |test|
       conn = Faraday.new(
-        url: 'http://localhost:2000',
+        url: url,
         headers: {'Content-Type' => 'application/json'}
       )
 
