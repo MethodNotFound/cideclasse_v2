@@ -13,6 +13,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/1/new
   def new
+    @sidebar = true
     @submission = Submission.new
     @task = Task.find(params[:task_id])
     @submission.task = @task

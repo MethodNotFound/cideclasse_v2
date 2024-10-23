@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
   before_action :ensure_admin, only: [:index_teacher]
 
   def index
+    @sidebar = true
     @student = current_student.student
     @classes = current_student.student.klasses
 
@@ -25,6 +26,8 @@ class DashboardController < ApplicationController
   end
 
   def class_tasks
+    @sidebar = true
+
     @student = current_student.student
     @klass = Klass.find(params[:id])
   end

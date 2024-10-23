@@ -1,6 +1,6 @@
 <!-- bg-red-400 bg-green-400 -->
 
-<div class="mx-auto md:w-2/3 w-full">
+<div class="p-5">
   <h1 class="font-bold text-4xl text-center mt-5 mb-5">Entrega de Tarefa</h1>
 
   <%= form_with(model: @submission, class: "contents") do |form| %>
@@ -15,8 +15,8 @@
   <% end %>
 
   <h1 class="font-bold text-4xl text-center mt-10 mb-5">Tentativas <%= @previous_submissions.size %></h1>
-  <%= turbo_frame_tag "kill-me" do %>
-    <div class="w-full overflow-y-auto  rounded border-gray-600 border-1 border-solid border p-3 mt-10">
+  <%= turbo_frame_tag("kill-me", class: "block") do %>
+    <div class="overflow-y-auto  rounded border-gray-600 border-1 border-solid border p-3 mt-10" style="width: calc(100vw - 200px)">
       <div class="flex w-fit">
         <% @previous_submissions.each do |submission| %>
           <% total = submission.task.tests.count %>
