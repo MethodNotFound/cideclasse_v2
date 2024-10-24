@@ -16,10 +16,21 @@
     <h1 class="text-2xl font-bold mb-4 text-center">Alunos</h1>
 
     <% tasks_total = @klass.tasks.size %>
+
+    <div class="flex border-b border-solid border-base-100 px-4 py-2">
+      <div>Nome</div>
+      <div class="ml-auto">Tarefas Completas</div>
+    </div>
     <% @klass.students.each do |student| %>
-      <div>
+      <div class="flex border-b border-solid border-base-100 px-4 py-2">
         <%= student.name %>
-        <%= tasks_total %> / <%= "" %>
+        <% completed_tasks = 0 %>
+        <% @klass.tasks.each do |task| %>
+          <% completed_tasks += 1 if student.submissions.where(task: task, passed: true).count > 0 %>
+        <% end %>
+        <div class="block ml-auto">
+          <%= completed_tasks %> / <%= tasks_total %>
+        </div>
       </div>
     <% end %>
 
