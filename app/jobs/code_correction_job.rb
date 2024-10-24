@@ -50,6 +50,10 @@ class CodeCorrectionJob < ApplicationJob
         p corrections.errors
       end
     end
+
+    total_tests = task.tests.size
+    passed_tests = submission.corrections.where(passed: true).size
+    submission.update(passed: total_tests == passed_tests)
   rescue => e
     puts e.message
     p e.backtrace
