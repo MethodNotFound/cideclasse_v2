@@ -1,15 +1,27 @@
 <div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
+  <div class="mx-auto w-full">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
     <%= render @klass %>
 
-    <%= link_to "Edit this klass", edit_klass_path(@klass), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Back to klasses", klasses_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Editar", edit_klass_path(@klass), class: "btn btn-outline btn-primary" %>
+    <%= link_to "Voltar", klasses_path, class: "btn btn-outline btn-primary" %>
+
     <div class="inline-block ml-2">
-      <%= button_to "Destroy this klass", @klass, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to "Deletar", @klass, method: :delete, class: "btn btn-outline btn-error" %>
     </div>
+
+    <h1 class="text-2xl font-bold mb-4 text-center">Alunos</h1>
+
+    <% tasks_total = @klass.tasks.size %>
+    <% @klass.students.each do |student| %>
+      <div>
+        <%= student.name %>
+        <%= tasks_total %> / <%= "" %>
+      </div>
+    <% end %>
+
   </div>
 </div>

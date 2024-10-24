@@ -1,12 +1,11 @@
 <div class="max-w-2xl mx-auto shadow-md rounded-lg p-6">
-  <h1 class="text-2xl font-bold mb-4">Register Students to a Class</h1>
+  <h1 class="text-2xl font-bold mb-4 text-center">Adicionar Alunos na Turma</h1>
 
   <%= form_with(url: students_search_klass_path, method: :post) do |form| %>
     <div class="mb-6">
-      <label for="student-search" class="block text-gray-300 font-semibold mb-2">Student Search</label>
       <div class="flex">
-        <%= form.text_field :query, class: "w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200", placeholder: "busca por nome" %>
-        <%= form.submit "search", class: "btn btn-primary" %>
+        <%= form.text_field :query, class: "w-full p-3 border border-base-100 shadow-sm focus:outline-none focus:ring focus:ring-blue-200 rounded-l h-[48px]", placeholder: "busca por nome" %>
+        <%= form.submit "Buscar", class: "btn btn-primary rounded-l-none" %>
       </div>
     </div>
   <% end %>
@@ -14,14 +13,14 @@
 
   <!-- List of Students to Add -->
   <div class="mb-6">
-    <h2 class="text-lg font-semibold mb-2">Students Found</h2>
+    <h2 class="text-lg font-semibold mb-2">Alunos Encontrados</h2>
     <%= render(partial: "klasses/students_search", locals: {students_search: [], klass: @klass}) %>
   </div>
 
   <!-- List of Students in Class -->
   <div class="mb-6">
-    <h2 class="text-lg font-semibold mb-2">Students in the Class</h2>
-    <ul id="class-student-list" class="border rounded-md p-4 space-y-2">
+    <h2 class="text-lg font-semibold mb-2">Alunos Cadastrados na Turma</h2>
+    <ul id="class-student-list" class="border border-base-100 rounded-md p-4 space-y-2">
 
       <!-- Dynamically filled student list -->
 

@@ -29,6 +29,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @bar = true
   end
 
   # POST /students or /students.json

@@ -34,8 +34,8 @@
     <% end %>
 
     <div class="flex mb-3">
-      <%= form.submit "Criar aluno", class: "btn btn-outline btn-accent bg-purple" %>
-      <%= link_to "Voltar", students_welcome_path, class: "btn btn-outline w-32 btn-accent bg-purple " %>
+      <%= form.submit("#{student.persisted? ? "Editar" : "Criar"} aluno", class: "btn btn-outline btn-accent bg-purple") %>
+      <%= link_to "Voltar", student.persisted? ? student_path(student) : students_welcome_path, class: "btn btn-outline w-32 btn-accent bg-purple " %>
     </div>
   </div>
 <% end %>

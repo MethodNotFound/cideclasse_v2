@@ -3,23 +3,23 @@
 
   <%= form_with(url: tasks_search_klass_path, method: :post) do |form| %>
     <div class="mb-6">
-      <label for="student-search" class="block text-gray-300 font-semibold mb-2">Buscar tarefas</label>
+      <label for="student-search" class="text-lg block text-gray-300 font-semibold mb-2">Buscar tarefas</label>
       <div class="flex">
-        <%= form.text_field :query, class: "w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200", placeholder: "busca por título" %>
-        <%= form.submit "Buscar", class: "btn btn-primary" %>
+        <%= form.text_field :query, class: "w-full p-3 border border-base-100 shadow-sm focus:outline-none focus:ring focus:ring-blue-200 rounded-l h-[48px]", placeholder: "busca por título" %>
+        <%= form.submit "Buscar", class: "btn btn-primary rounded-l-none" %>
       </div>
     </div>
   <% end %>
 
 
   <div class="mb-6">
-    <h2 class="text-lg font-semibold mb-2">Tarefas Descobertas</h2>
+    <h2 class="text-lg font-semibold mb-2">Tarefas Encontradas</h2>
     <%= render(partial: "klasses/tasks_search", locals: {tasks_search: [], klass: @klass}) %>
   </div>
 
   <div class="mb-6">
     <h2 class="text-lg font-semibold mb-2">Tarefas da turma</h2>
-    <ul id="class-student-list" class="border rounded-md p-4 space-y-2">
+    <ul id="class-student-list" class="border border-base-100 rounded-md p-4 space-y-2">
 
       <% @klass.tasks.each do |task| %>
         <li class="flex justify-between items-center">
