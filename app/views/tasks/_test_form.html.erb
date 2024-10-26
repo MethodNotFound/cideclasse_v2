@@ -1,12 +1,19 @@
-<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
-  <%= f.label :input %>
-  <%= f.text_area :input %>
-  <%= f.label :output %>
-  <%= f.text_area :output %>
-  <%= f.label :hidden %>
-  <%= f.check_box :hidden %>
+<div class="nested-form-wrapper p-3 border border-base-100 rounded mb-3" data-new-record="<%= f.object.new_record? %>">
+  <button class="float-right btn btn-sm btn-error" type="button" data-action="nested-form#remove">Remover Teste</button>
 
-  <button type="button" data-action="nested-form#remove">Remove todo</button>
+
+  <div class="my-5">
+    <%= f.label :input, "Input" %>
+    <%= f.text_area :input, class: "block rounded-md border border-base-100 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+
+  <div class="my-5">
+    <%= f.label :output, "Output" %>
+    <%= f.text_area :output, class: "block rounded-md border border-base-100 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <%= f.label :hidden, "Oculto?" %>
+  <%= f.check_box :hidden %>
 
   <%= f.hidden_field :_destroy %>
 </div>

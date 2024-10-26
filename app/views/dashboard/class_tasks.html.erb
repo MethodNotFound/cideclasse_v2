@@ -1,28 +1,26 @@
-<div class="mx-auto md:w-2/3 w-full py-10">
+<div class="p-5">
   <h1 class="text-3xl font-bold text-center mb-20"><%= @klass.identifier %> tarefas</h1>
   <h1 class="text-3xl font-bold mb-3 text-red-400">Para fazer</h1>
   <% @klass.tasks.each do |task| %>
     <%= next if !task.submissions.where(student: @student).map{ _1.corrections.count == _1.corrections.where(passed: true).count }.select{_1 == true}.empty? %>
-    <div class="flex justify-between p-5 border border-solid border-base-100 border-1 rounded mb-2">
-      <p class="my-auto">
+    <%= link_to(show_task_student_path(task_id: task.id)) do %>
+      <div class="flex justify-between p-5 border border-solid border-base-100 transition-all hover:bg-base-100/20 border-1 rounded mb-2">
+        <p class="my-auto">
         <%= task.title %>
-      </p>
-      <%= link_to(show_task_student_path(task_id: task.id), class: "btn btn-sm btn-primary") do %>
-        Mostrar
-      <% end %>
-    </div>
+        </p>
+      </div>
+    <% end %>
   <% end %>
 
   <h1 class="text-3xl font-bold mb-3 mt-8 text-green-400">Completas</h1>
   <% @klass.tasks.each do |task| %>
     <%= next if task.submissions.where(student: @student).map{ _1.corrections.count == _1.corrections.where(passed: true).count }.select{_1 == true}.empty? %>
-    <div class="flex justify-between p-5 border border-solid border-base-100 border-1 rounded mb-2">
-      <p class="my-auto">
+    <%= link_to(show_task_student_path(task_id: task.id)) do %>
+      <div class="flex justify-between p-5 border border-solid border-base-100 transition-all hover:bg-base-100/20 border-1 rounded mb-2">
+        <p class="my-auto">
         <%= task.title %>
-      </p>
-      <%= link_to(show_task_student_path(task_id: task.id), class: "btn btn-sm btn-primary") do %>
-        Mostrar
-      <% end %>
-    </div>
+        </p>
+      </div>
+    <% end %>
   <% end %>
 </div>

@@ -1,17 +1,10 @@
-<div class="mx-auto md:w-2/3 w-full flex">
+<div class="mx-auto w-4/5 w-full pt-10">
   <div class="mx-auto w-full">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
     <%= render @klass %>
-
-    <%= link_to "Editar", edit_klass_path(@klass), class: "btn btn-outline btn-primary" %>
-    <%= link_to "Voltar", klasses_path, class: "btn btn-outline btn-primary" %>
-
-    <div class="inline-block ml-2">
-      <%= button_to "Deletar", @klass, method: :delete, class: "btn btn-outline btn-error" %>
-    </div>
 
     <h1 class="text-2xl font-bold mb-4 text-center">Alunos</h1>
 
@@ -34,5 +27,15 @@
       </div>
     <% end %>
 
+    <br>
+    <br>
+
+    <div class="flex">
+      <%= link_to "Editar", edit_klass_path(@klass), class: "btn btn-outline btn-primary" %>
+      <%= link_to "Voltar", klasses_path, class: "ml-1 btn btn-outline btn-primary" %>
+      <div class="block ml-auto">
+        <%= button_to "Deletar", @klass, method: :delete, class: "btn btn-outline btn-error" %>
+      </div>
+    </div>
   </div>
 </div>
