@@ -10,32 +10,31 @@
       </ul>
     </div>
   <% end %>
-  <div class="bg-gray flex flex-col">
+
+  <div class="my-5">
+    <%= form.label :identifier, "Identificador" %>
+    <%= form.text_field :identifier, class: "block rounded border border-base-100 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :name, "Nome"%>
+    <%= form.text_field :name, class: "block rounded border border-base-100 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email, class: "block rounded border border-base-100 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <% if student.id.present? %>
     <div class="my-5">
-      <%= form.label :Nome%>
-      <%= form.text_field :name, class: "block  input input-bordered input-secondary w-full max-w-xs  shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.label :ask_new_password %>
+      <%= form.check_box :ask_new_password, class: "block mt-2 h-5 w-5" %>
     </div>
+  <% end %>
 
-    <div class="my-5">
-      <%= form.label :email %>
-      <%= form.text_field :email, class: "block bg-[#454242] input input-bordered input-secondary w-full max-w-xs shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
 
-    <div class="my-5">
-      <%= form.label :Identificador %>
-      <%= form.text_field :identifier, class: "block  bg-[#454242] input input-bordered input-secondary w-full max-w-xs shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <% if student.id.present? %>
-      <div class="my-5">
-        <%= form.label :ask_new_password %>
-        <%= form.check_box :ask_new_password, class: "block mt-2 h-5 w-5" %>
-      </div>
-    <% end %>
-
-    <div class="flex mb-3">
-      <%= form.submit("#{student.persisted? ? "Editar" : "Criar"} aluno", class: "btn btn-outline btn-accent bg-purple") %>
-      <%= link_to "Voltar", student.persisted? ? student_path(student) : students_welcome_path, class: "btn btn-outline w-32 btn-accent bg-purple " %>
-    </div>
+  <div class="inline">
+    <%= form.submit "#{student.persisted? ? "Editar" : "Criar" } aluno", class: "btn btn-primary" %>
   </div>
 <% end %>

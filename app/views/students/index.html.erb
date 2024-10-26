@@ -1,8 +1,20 @@
-<div id="students" class="mt-3">
-  <% @students.each do |student| %>
-    <div class="flex justify-between w-full pb-3">
-      Nome: <%= student.name %>
-      <%= link_to "Mostrar cadastro", student, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium text-black" %>
-    </div>
-  <% end %>
+<div class="mx-auto w-4/5">
+
+  <% content_for :title, "Alunos" %>
+
+  <h1 class="font-bold text-4xl text-center mt-5 mb-5">Alunos</h1>
+
+
+  <div id="klasses" class="min-w-full">
+    <% @students.each do |student| %>
+      <div class="flex mb-5 justify-between items-center py-2 px-3 border border-base-100 rounded">
+        <span><%= student.name %></span>
+        <div class="flex">
+          <%= link_to "Mostrar", student, class: "btn btn-secondary mr-2" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Novo aluno", new_student_path, class: "btn btn-primary float-right" %>
 </div>

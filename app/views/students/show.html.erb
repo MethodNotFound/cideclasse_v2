@@ -1,4 +1,4 @@
-<div class="mx-auto h-dvh bg-gradient  w-full flex">
+<div class="mx-auto w-4/5">
   <div class="mx-auto">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
@@ -6,10 +6,13 @@
 
     <%= render @student %>
 
-    <%= link_to "Editar", edit_student_path(@student), class: "mt-2 rounded-lg py-3 px-5 bg-purple inline-block font-medium" %>
-    <%= link_to "Voltar", students_welcome_path, class: "ml-2 rounded-lg py-3 px-5 bg-purple inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Deletar", @student, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-purple font-medium" %>
+
+    <div class="flex">
+      <%= link_to "Editar", edit_student_path(@student), class: "btn btn-outline btn-primary" %>
+      <%= link_to "Voltar", students_path, class: "ml-1 btn btn-outline btn-primary" %>
+      <div class="block ml-auto">
+        <%= button_to "Deletar", @student, method: :delete, class: "btn btn-outline btn-error" %>
+      </div>
     </div>
   </div>
 </div>

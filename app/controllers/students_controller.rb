@@ -23,13 +23,11 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
-    @bar = true
     @student = Student.new
   end
 
   # GET /students/1/edit
   def edit
-    @bar = true
   end
 
   # POST /students or /students.json
