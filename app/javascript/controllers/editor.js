@@ -6,6 +6,7 @@ export default class extends Controller {
     this.element.editor = monaco.editor.create(this.element, {
       language: 'python',
       theme: 'vs-dark',
+      value: document.getElementById('submission_code').value,
       automaticLayout: true,
       minimap: { enabled: false },
     })

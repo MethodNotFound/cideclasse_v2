@@ -43,6 +43,6 @@
   <button class="btn btn-secondary block ml-auto" type="button" data-action="nested-form#add">Adicionar teste</button>
 
   <div class="inline">
-    <%= form.submit "Editar", class: "btn btn-primary" %>
+    <%= form.submit "#{task.persisted? ? "Editar" : "Criar"} Tarefa", class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,6 +1,6 @@
 <!-- bg-red-400 bg-green-400 -->
 
-<div class="p-5">
+<div class="p-5 py-10">
   <h1 class="text-3xl font-bold text-center mb-8"><%= @task.title %></h1>
 
   <div style="min-height: 300px" class="mb-8">
@@ -14,12 +14,12 @@
   <%= form_with(model: @submission, class: "contents") do |form| %>
     <div class="monaco bg-black" data-controller="editor" style="min-height: 300px"></div>
     <div class="my-5">
-      <%= form.hidden_field :code, class: "block shadow rounded-md border border-base-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.hidden_field :code, class: "block shadow rounded-md border border-base-200 outline-none px-3 py-2 mt-2 w-full", value: @task.submissions.last.code %>
     </div>
 
     <%= form.hidden_field :task_id, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
 
-    <%= form.submit "Rodar", class: "ml-auto transition-all block py-3 px-5 bg-base-300 text-green-300 font-medium cursor-pointer hover:bg-base-100", style: "margin-top: -68px; z-index: 999; position: relative" %>
+    <%= form.submit "Rodar", class: "ml-auto transition-all block py-3 px-5 bg-secondary text-green-300 font-medium cursor-pointer hover:bg-base-100", style: "margin-top: -68px; z-index: 999; position: relative" %>
   <% end %>
 
   <!-- <h1 class="font-bold text-4xl text-center mt-10 mb-5">Tentativas Anteriores</h1> -->
@@ -65,7 +65,7 @@
         </div>
       <% else %>
         <div class="flex flex-col justify-center items-center" style="min-height: 300px">
-          <div class="text-2xl text-base-100">
+          <div class="text-2xl text-white/50">
             Nenhum Envio Selecionado
           </div>
         </div>

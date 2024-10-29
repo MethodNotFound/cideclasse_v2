@@ -1,13 +1,13 @@
 <main class="bg-gray">
   <!--Seção Container-->
-  <div class="container  flex  h-screen  bg-gray">
-    <div class="bg-purple w-8/12 flex justify-center items-center flex-col"> 
-      <h1 class="font-bold text-4xl bg-purple  text-6xl font-bold  text-white justify-center  text-center">Bem vindo ao <br>Cide Classe</h1>
-      <img class="img-form bg-purple" src="/grupo.png"/>
+  <div class="flex h-screen bg-base-200">
+    <div class="bg-primary w-[50%] flex flex-none justify-center items-center flex-col"> 
+      <h1 class="font-bold text-4xl text-6xl font-bold  text-white justify-center  text-center">Bem vindo ao <br>Cide Classe</h1>
+      <img class="img-form" src="/grupo.png"/>
     </div>
 
     <!--Seção Container Formulario-->
-    <div  class="container_login ml-20 w-2/4 text-white bg-gray ">
+    <div class="w-full px-10">
       <div role="alert" class="alert alert-error mt-3 <%= "hidden" if !@errors.present? %>" style="margin-bottom: -70px">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,26 +28,24 @@
       </div>
 
       <div class="h-full flex flex-col justify-center">
-        <h1 class="font-bold text-4xl">Login</h1>
+        <h1 class="font-bold text-4xl text-center">Login</h1>
 
         <%= form_with url: sessions_path do |form| %>
           <div class="my-5">
             <%= form.label :Usuário%>
-            <%= form.text_field :identifier, class: "block shadow  bg-gray rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", value: @attrs[:identifier]%>
+            <%= form.text_field :identifier, class: "block rounded-md border border-base-300 outline-none px-3 py-2 mt-2 w-full", value: @attrs[:identifier]%>
           </div>
 
           <div class="my-5">
             <%= form.label :Senha %>
-            <%= form.password_field :password, class: "block shadow bg-gray rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", value: @attrs[:password] %>
+            <%= form.password_field :password, class: "block rounded-md border border-base-300 outline-none px-3 py-2 mt-2 w-full", value: @attrs[:password] %>
           </div>
 
           <div class="inline">
-            <%= form.submit "Logar", class: " btn  bg-purple text-white p-padrao rounded-xl h-12 inline-block font-medium cursor-pointer" %>
+            <%= form.submit "Logar", class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>
-
     </div>
-
   </div>
 </main>

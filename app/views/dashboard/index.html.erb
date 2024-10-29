@@ -2,7 +2,7 @@
 
 <div class="px-5 w-full py-10">
   <!-- Title -->
-  <h1 class="text-3xl font-bold text-center mb-8">Suas turmas</h1>
+  <h1 class="text-3xl font-bold text-center mb-8">Suas Turmas</h1>
 
   <!-- Classes Section -->
   <div class="">
@@ -14,7 +14,7 @@
       <% @classes.each_with_index do |klass, i| %>
 
         <!-- Class 1 -->
-          <li class="border border-base-100 rounded-lg p-4">
+          <li class="bg-base-100 border border-base-300 rounded-lg p-4">
             <%= link_to(dashboard_class_tasks_path(id: klass.id), class: "underline") do %>
               <h3 class="text-xl font-semibold hover:text-blue-300">Turma <%= i+1 %>: <%= klass.identifier %></h3>
             <% end %>
