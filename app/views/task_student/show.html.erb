@@ -7,14 +7,14 @@
     <%= @task.problem %>
   </div>
 
-  <div class="divider"></div>
+  <div class="w-full border border-primary"> </div>
 
   <h1 class="font-bold text-4xl text-center mt-5 mb-5">Entrega de Tarefa</h1>
 
   <%= form_with(model: @submission, class: "contents") do |form| %>
     <div class="monaco bg-black" data-controller="editor" style="min-height: 300px"></div>
     <div class="my-5">
-      <%= form.hidden_field :code, class: "block shadow rounded-md border border-base-200 outline-none px-3 py-2 mt-2 w-full", value: @task.submissions.last.code %>
+      <%= form.hidden_field :code, class: "block shadow rounded-md border border-base-200 outline-none px-3 py-2 mt-2 w-full", value: @task.submissions&.last&.code %>
     </div>
 
     <%= form.hidden_field :task_id, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
@@ -23,9 +23,9 @@
   <% end %>
 
   <!-- <h1 class="font-bold text-4xl text-center mt-10 mb-5">Tentativas Anteriores</h1> -->
-  <div class="bg-base-200 font-semibold text-white/70 mt-5 text-center px-2 py-1 rounded-t border border-base-100 w-fit" style="margin-bottom: -1px; position: relative">Tentativas Anteriores</div>
+  <div class="bg-base-200 font-semibold text-white/70 mt-5 text-center px-2 py-1 rounded-t border border-primary w-fit" style="margin-bottom: -1px; position: relative">Tentativas Anteriores</div>
   <%= turbo_frame_tag("kill-me", class: "block") do %>
-    <div class="overflow-y-auto  rounded-tr rounded-br rounded-bl border-base-100 border-1 border-solid border p-3" style="width: calc(100vw - 200px)">
+    <div class="overflow-y-auto  rounded-tr rounded-br rounded-bl border-primary border-1 border-solid border p-3" style="width: calc(100vw - 200px)">
       <div class="flex w-fit">
         <% @previous_submissions.order(created_at: :DESC).each do |submission| %>
           <% total = submission.task.tests.count %>
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div id="submission-inspect" class="w-full rounded border-base-100 border-1 border-solid border p-3 mt-3 my-10">
+    <div id="submission-inspect" class="w-full rounded border-primary border-1 border-solid border p-3 mt-3 my-10">
       <% if @inspected %>
         <div class="flex flex-col" style="min-height: 300px">
           <p>Código enviado:</p>
@@ -65,7 +65,7 @@
         </div>
       <% else %>
         <div class="flex flex-col justify-center items-center" style="min-height: 300px">
-          <div class="text-2xl text-white/50">
+          <div class="text-2xl text-primary">
             Nenhum Envio Selecionado
           </div>
         </div>
