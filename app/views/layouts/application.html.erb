@@ -41,7 +41,7 @@
 
 
     <% if @sidebar == true %>
-      <div class="drawer lg:drawer-open">
+      <div class="drawer drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
           <!-- Page content here -->
@@ -58,7 +58,7 @@
             <% if session[:current_session_id] != "admin" && session[:current_session_id] %>
               <% student = Session.find(session[:current_session_id]).student %>
               <% student.klasses.each do |klass| %>
-                <li class="text-white border border-primary rounded ml-4 whitespace-nowrap text-ellipsis overflow-hidden" style="width: calc(100% - 20px)"><a class="w-full whitespace-nowrap text-ellipsis overflow-hidden block" href="<%= dashboard_class_tasks_path(klass)%>"><%= klass.identifier %></a></li>
+                <li class="text-white border mb-2 border-primary rounded ml-4 whitespace-nowrap text-ellipsis overflow-hidden" style="width: calc(100% - 20px)"><a class="w-full whitespace-nowrap text-ellipsis overflow-hidden block" href="<%= dashboard_class_tasks_path(klass)%>"><%= klass.identifier %></a></li>
               <% end %>
             <% end %>
           </ul>
