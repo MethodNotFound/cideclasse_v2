@@ -30,7 +30,7 @@
         <% @previous_submissions.order(created_at: :DESC).each do |submission| %>
           <% total = submission.task.tests.count %>
           <% passed = submission.corrections.where(passed: true).count %>
-          <%= link_to request.params.merge(inspect: submission.id), class: "h-5 w-5 bg-#{passed < total ? "red" : "green"}-400 rounded-full ml-2" do %>
+          <%= link_to request.params.merge(inspect: submission.id), class: "h-5 w-5 #{passed < total ? "bg-red-800" : "bg-green-400"} rounded-full ml-2" do %>
           <% end %>
           <%=  %>
         <% end %>
