@@ -71,6 +71,7 @@ class SessionsController < ApplicationController
   end
 
   def create_password
+    params.permit!
     if params[:password].nil? || params[:password].size < 6
       @attrs = params.to_h
       @errors = ["Senha dever ter pelo menos 6 caracteres"]
