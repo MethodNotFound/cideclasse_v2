@@ -10,12 +10,12 @@
 
     <% tasks_total = @klass.tasks.size %>
 
-    <div class="flex border-b border-solid border-base-100 px-4 py-2">
+    <div class="flex border-b border-solid border-primary bg-secondary px-4 py-2">
       <div>Nome</div>
       <div class="ml-auto">Tarefas Completas</div>
     </div>
     <% @klass.students.each do |student| %>
-      <div class="flex border-b border-solid border-base-100 px-4 py-2">
+      <div class="flex border-b border-solid border-primary px-4 py-2">
         <%= student.name %>
         <% completed_tasks = 0 %>
         <% @klass.tasks.each do |task| %>
