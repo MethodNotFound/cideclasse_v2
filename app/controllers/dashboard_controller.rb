@@ -14,7 +14,7 @@ class DashboardController < ApplicationController
           .map {
             {
               identifier: _1.identifier,
-              tasks: _1.tasks.map{ |t| {id: t.id.to_s, title: t.title, url: task_path(t), passed: t.submissions.where(student: @student, passed: true).count > 0  } }
+              tasks: _1.tasks.map{ |t| {id: t.id.to_s, title: t.title, url: "/task_student/#{t.id}", passed: t.submissions.where(student: @student, passed: true).count > 0  } }
             }
           }
 
