@@ -23,6 +23,8 @@ RUN wget https://download.oracle.com/java/21/latest/jdk-21_linux-aarch64_bin.tar
 
 RUN tar xvf jdk-21_linux-aarch64_bin.tar.gz -C /opt
 
+RUN ls -la /opt
+
 RUN update-alternatives --install /usr/bin/java java /opt/jdk-21_linux-aarch64_bin/bin/java 1000
 
 # Set production environment
