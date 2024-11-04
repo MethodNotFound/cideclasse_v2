@@ -15,6 +15,7 @@ class KlassReportJob < ApplicationJob
       end
     end
 
+    compares = compares.compact
     p compares
 
     folder_name = SecureRandom.base36(10)
