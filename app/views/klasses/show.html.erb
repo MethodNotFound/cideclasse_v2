@@ -10,7 +10,7 @@
 
     <% @klass.reports.each do |r| %>
       <div class="flex">
-        <span class="mr-2">relatorio<%= r.id %></span> <%= link_to "download", r.result_url, class: "text-blue-500" if r.result %>
+        <span class="mr-2">relatorio<%= r.id %></span> <%= link_to "download", url_for(r.result), class: "text-blue-500" if r.result.attached? %>
       </div>
     <% end %>
 

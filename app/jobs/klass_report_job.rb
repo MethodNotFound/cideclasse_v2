@@ -31,9 +31,9 @@ class KlassReportJob < ApplicationJob
     puts cmd
     `#{cmd}`
 
-    report.result = File.open("#{Rails.root.to_s}/tmp/#{folder_name}/results.zip")
-    report.save
-    # report.result.attach(io: File.open("#{Rails.root.to_s}/tmp/#{folder_name}/results.zip"), filename: "results.zip")
+    # report.result = File.open("#{Rails.root.to_s}/tmp/#{folder_name}/results.zip")
+    # report.save
+    report.result.attach(io: File.open("#{Rails.root.to_s}/tmp/#{folder_name}/results.zip"), filename: "results.zip")
     report.update(finished: true)
   rescue => e
     puts e.message

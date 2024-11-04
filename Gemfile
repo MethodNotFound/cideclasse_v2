@@ -63,3 +63,7 @@ gem "solid_queue", "~> 1.0"
 gem "faraday", "~> 2.12"
 
 gem "shrine", "~> 3.6"
+
+gem 'activestorage-database-service', github: 'TitovDigital/activestorage-database-service'
+
+gem 'active_storage-postgresql'
