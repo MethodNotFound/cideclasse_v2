@@ -13,13 +13,17 @@ FROM docker.io/library/ruby:$RUBY_VERSION-slim as base
 # Rails app lives here
 WORKDIR /rails
 
+
 # Install base packages
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl wget libjemalloc2 libvips postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-RUN wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
-RUN dpkg -i jdk-21_linux-x64_bin.deb
+RUN wget https://download.oracle.com/java/21/latest/jdk-21_linux-aarch64_bin.tar.gz
+
+RUN tar xvf jdk-21_linux-aarch64_bin.tar.gz -C /opt
+
+RUN update-alternatives --install /usr/bin/java java /opt/jdk-21_linux-aarch64_bin/bin/java 1000
 
 # Set production environment
 ENV RAILS_ENV="production" \
