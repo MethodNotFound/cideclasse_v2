@@ -61,3 +61,5 @@ end
 gem "solid_queue", "~> 1.0"
 
 gem "faraday", "~> 2.12"
+
+gem "shrine", "~> 3.6"

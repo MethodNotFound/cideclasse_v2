@@ -1,5 +1,5 @@
 class Report < ApplicationRecord
   belongs_to :klass
 
-  has_one_attached :result
+  include ResultUploader::Attachment(:result) # adds an `image` virtual attribute
 end

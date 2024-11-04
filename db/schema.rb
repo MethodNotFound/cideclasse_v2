@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_04_015029) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_04_133306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -88,6 +88,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_04_015029) do
     t.boolean "finished"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "result_data"
     t.index ["klass_id"], name: "index_reports_on_klass_id"
   end
 
