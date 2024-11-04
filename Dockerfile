@@ -18,18 +18,8 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-RUN apt-get update && \
-    apt-get install -y openjdk-21-jdk && \
-    apt-get install -y ant && \
-    apt-get clean;
-
-RUN apt-get update && \
-    apt-get install ca-certificates-java && \
-    apt-get clean && \
-    update-ca-certificates -f;
-
-ENV JAVA_HOME /usr/lib/jvm/java-21-openjdk-arm64/
-RUN export JAVA_HOME
+RUN wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
+RUN dpkg -i jdk-21_linux-x64_bin.deb
 
 # Set production environment
 ENV RAILS_ENV="production" \
