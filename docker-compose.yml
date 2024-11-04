@@ -24,7 +24,7 @@ services:
       - app_network
 
   piston:
-    image: ghcr.io/engineer-man/piston
+    image: ghcr.io/engineer-man/piston@sha256:63b5654156a89c5a2ad281aface21416615d62ec056d88efe8fcd307ce73575a
     volumes:
       - piston_data:/piston
     ports:

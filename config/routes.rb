@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   post "/klasses/:id/add_student" => "klasses#add_student", as: :add_student_to_klass
   get "/klasses/:id/students" => "klasses#students", as: :edit_students_klass
   post "/klasses/:id/students_search" => "klasses#students_search", as: :students_search_klass
+  post "/klasses/:id/report" => "klasses#report", as: :klass_report
 
   delete "/klasses/:id/remove_task" => "klasses#remove_task", as: :remove_task_from_klass
   post "/klasses/:id/add_task" => "klasses#add_task", as: :add_task_to_klass

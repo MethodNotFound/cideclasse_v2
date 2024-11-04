@@ -6,6 +6,16 @@
 
     <%= render @klass %>
 
+    <%= button_to "gerar relotorio", klass_report_path(id: @klass.id) %>
+
+    <% @klass.reports.each do |r| %>
+      <div class="flex">
+        <span class="mr-2">relatorio<%= r.id %></span> <%= link_to "download", url_for(r.result), class: "text-blue-500" if r.result.attached? %>
+      </div>
+    <% end %>
+
+    <p>analisar resultados: <%= link_to "https://jplag.github.io/JPlag/", "https://jplag.github.io/JPlag/", class: "text-blue-500" %></p>
+
     <h1 class="text-2xl font-bold mb-4 text-center">Alunos</h1>
 
     <% tasks_total = @klass.tasks.size %>
