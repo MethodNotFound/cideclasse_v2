@@ -25,7 +25,7 @@ RUN tar xvf jdk-21_linux-aarch64_bin.tar.gz -C /opt
 
 RUN ls -la /opt
 
-RUN update-alternatives --install /usr/bin/java java /opt/jdk-21_linux-aarch64_bin/bin/java 1000
+RUN update-alternatives --install /usr/bin/java java /opt/jdk-21.0.5/bin/java 1000
 
 # Set production environment
 ENV RAILS_ENV="production" \
