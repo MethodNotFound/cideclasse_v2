@@ -58,7 +58,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "solid_queue", "~> 1.0"
+gem "solid_queue", "~> 1.1"
 
 gem "faraday", "~> 2.12"
 
